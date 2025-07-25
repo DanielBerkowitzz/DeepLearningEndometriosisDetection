@@ -13,6 +13,8 @@ This repository presents a deep learning model developed for the non invasive di
 - **Environment**: Google Colab
 - **Results**: Achieved 0.9346 accuracy and 0.3198 loss on the combined modalities
 
+## User guide can be found here, project 25-1-R-8.docx.
+
 ---
 
 ## Dataset
