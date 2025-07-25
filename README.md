@@ -62,13 +62,13 @@ Resulting in about 30,000 augmented samples across training/validation/test spli
 
 Evaluation was conducted separately on T1, T2, and combined modalities:
 
-| **Modality**     | **Accuracy** | **Precision** | **Recall** | **F1 Score** |
-|------------------|--------------|---------------|------------|--------------|
-| T1-only          | 93.39%       | 95.52%        | 90.77%     | 93.08%       |
-| T2-only          | 92.47%       | 93.53%        | 91.42%     | 92.46%       |
-| T1 + T2 combined | **93.46%**   | **94.13%**    | **92.03%** | **93.07%**   |
+| **Modality**     | **Accuracy** | **Precision** | **Recall** | **F1 Score** | **Test Loss** |
+|------------------|--------------|---------------|------------|--------------|---------------|
+| T1               | 93.39%       | 95.52%        | 90.77%     | 93.08%       | 0.3250        |
+| T2               | 92.47%       | 93.53%        | 91.42%     | 92.46%       | 0.3417        |
+| T1, T2 combined  | **93.46%**   | **94.13%**    | **92.03%** | **93.07%**   | **0.3198**    |
 
-All results were obtained with batch size 64 and 75–100 training epochs.
+All results were obtained with batch size 64 and 75 – 100 training epochs.
 
 ---
 
