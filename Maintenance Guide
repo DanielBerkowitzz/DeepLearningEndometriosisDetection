@@ -1,0 +1,78 @@
+===========================
+ Maintenance Guide
+===========================
+
+------------------------------
+Directory Structure
+------------------------------
+
+Required folders in Google Drive:
+  /dataset_t1_new/
+    └── true/
+    └── false/
+  /dataset_t2_new/
+    └── true/
+    └── false/
+
+Make sure all folders are with the correct labeled images, the notebook combines both datasets and balances them.
+
+---------------------------
+ Environment Setup
+---------------------------
+
+Requirements:
+
+Platform: Google Colab (tested with GPU runtime)
+Python version: 3.10 (Colab default as of 2025)
+
+Libraries:
+    - torch
+    - torchvision
+    - numpy
+    - matplotlib
+    - tqdm
+    - shutil
+    - os
+
+---------------------------
+ Updating Datasets
+---------------------------
+
+1. Upload folders to Google Drive:
+   - /MyDrive/dataset_t1_new/true
+   - /MyDrive/dataset_t1_new/false
+   - /MyDrive/dataset_t2_new/true
+   - /MyDrive/dataset_t2_new/false
+
+2. Code will copy them to:
+   - /content/dataset_t1_new/
+   - /content/dataset_t2_new/
+
+3. Use the validation cell to count images in each folder and verify successful upload. 
+   If image count seems low, restart the runtime.
+
+---------------------------
+ Model Configuration
+---------------------------
+
+- Base Model: torchvision.models.densenet121(pretrained=True)
+- Final Classifier: Linear -> ReLU -> Dropout(0.5) -> Linear(2 classes)
+- Loss Function: CrossEntropyLoss with label_smoothing=0.1
+- Optimizer: Adam
+  - lr = 1e-5
+  - weight_decay = 1e-4
+- Scheduler: ReduceLROnPlateau
+  - factor = 0.1
+  - patience = 3
+- Training:
+  - num_epochs = 75
+  - batch_size = 32
+  - patience_limit = 5
+
+---------------------------
+Maintenance Tips
+------------------------------
+- If images are changed: rerun data loading and splitting
+- If overfitting occurs: adjust dropout, learning rate, or augmentations
+- Always verify dataset counts after copying from Drive
+- GPU must be enabled in Colab
