@@ -83,8 +83,8 @@ All results were obtained with batch size 64 and 75–100 training epochs.
 2. Mount your Google Drive (`drive.mount()` cell)
 3. Ensure the following folder structure in Drive:
 /MyDrive/
-├── dataset_t1_new/
-└── dataset_t2_new/
+dataset_t1_new/
+dataset_t2_new/
 5. Run all cells in order. The notebook includes:
 - Data loading & augmentation
 - Model definition
